@@ -1,6 +1,26 @@
-var jsonStr = '{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"}]}';
 
-var obj = JSON.parse(jsonStr);
-obj['theTeam'].push({ "teamId": "4", "status": "pending" });
-jsonStr = JSON.stringify(obj);
-console.log(obj)
+
+var myObj, i, j, x = "";
+myObj = {
+  "name":"John",
+  "age":30,
+  "cars": [
+    {"name":"Ford", "models":["Fiesta", "Focus", "Mustang"]},
+    {"name":"BMW", "models":["320", "X3", "X5"]},
+    {"name":"Fiat", "models":["500", "Panda"] }
+  ]
+}
+for (i in myObj.cars) {
+  x += "<h2>" + myObj.cars[i].name + "</h2>";
+  for (j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j] + "<hr>";
+  }
+}
+document.getElementById("demo").innerHTML = x;
+
+const btn = document.getElementById('btn')
+
+btn.addEventListener('click', () => {
+	myObj.cars[1] = "Mercedes";
+	
+})
