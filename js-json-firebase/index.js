@@ -10,13 +10,7 @@ const state = {
    posts: [],
    newPost: {
       title: '',
-      body: '',
-			listItem: [
-				{
-					question: '',
-					answer: '',
-				}
-			]
+      body: ''
    },
    editPost: {}
 }
@@ -52,8 +46,6 @@ const createPost = (post, index) => `
       <div class=""post__wrapper>
          <h1 class="wrapper__title">${post.title}</h1>
          <div class="wrapper__body">${post.body}</div>
-				 <div class="wrapper__boy">${post.question}</div>
-				 <div class="wrapper__boy">${post.answer}</div>
       </div>
 
       <div class="post__buttons">
@@ -104,18 +96,18 @@ getPostsBtn.addEventListener('click', async () => {
 })
 
 function getPostsRequest() {
-   return fetch('https://list-comparison-f25b2-default-rtdb.firebaseio.com/lists.json', {
+   return fetch('https://list-comparison-f25b2-default-rtdb.firebaseio.com/max.json', {
       method: 'GET',
       headers: {
          "Content-type": "application/json; charset=UTF-8"
       }
    })
    .then((res) => res.json())
-   .then((posts) => console.log(posts))
+   .then((posts) => state.posts = state.posts.concat(posts))
 }
 
 function createPostRequest() {
-   return fetch('https://list-comparison-f25b2-default-rtdb.firebaseio.com/lists.json', {
+   return fetch('https://list-comparison-f25b2-default-rtdb.firebaseio.com/max.json', {
       method: 'POST',
       body: JSON.stringify(state.newPost),
       headers: {
@@ -127,7 +119,7 @@ function createPostRequest() {
 }
 
 function updatePostRequest() {
-   return fetch(`https://list-comparison-f25b2-default-rtdb.firebaseio.com/lists.json${state.editPost.id}`, {
+   return fetch(`https://jsonplaceholder.typicode.com/posts/${state.editPost.id}`, {
       method: 'PUT',
       body: JSON.stringify(state.editPost),
       headers: {
@@ -139,11 +131,7 @@ function updatePostRequest() {
 }
 
 function removePostRequest(id) {
-   return fetch(`https://list-comparison-f25b2-default-rtdb.firebaseio.com/lists.json${id}`, {
+   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: 'DELETE',
    })
-}
-
-function Massive() {
-	return fetch(`https://list-comparison-f25b2-default-rtdb.firebaseio.com/lists.json`)
 }

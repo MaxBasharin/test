@@ -1,26 +1,54 @@
-
-
-var myObj, i, j, x = "";
-myObj = {
-  "name":"John",
-  "age":30,
-  "cars": [
-    {"name":"Ford", "models":["Fiesta", "Focus", "Mustang"]},
-    {"name":"BMW", "models":["320", "X3", "X5"]},
-    {"name":"Fiat", "models":["500", "Panda"] }
-  ]
+// Our JSON data
+var data =
+{
+	"lectureList": [
+		{
+			"listName": "HTML",
+			"contentList": [
+				{
+					"guestion": "HTML",
+					"answer": "1972"
+				},
+				{
+					"guestion": "header",
+					"answer": "999"
+				}
+			]
+		},
+		{
+			"listName": "CSS",
+			"contentList": [
+				{
+					"guestion": "css",
+					"answer": "1972"
+				},
+				{
+					"guestion": ":root",
+					"answer": "1972"
+				},
+				{
+					"guestion": "::placholder",
+					"answer": "1972"
+				}
+			]
+		}
+	]
 }
-for (i in myObj.cars) {
-  x += "<h2>" + myObj.cars[i].name + "</h2>";
-  for (j in myObj.cars[i].models) {
-    x += myObj.cars[i].models[j] + "<hr>";
-  }
+
+// Put the data into a variable and format with HTML tags
+var output = "<h1>lectureList</h1>";
+
+// Loop through the lectureList
+for (var i in data.lectureList) {
+	output += "<h2>" + data.lectureList[i].listName + "</h2>";
+	output += "<ul>";
+
+	// Loop through the contentList for the current artist
+	for (var j in data.lectureList[i].contentList) {
+		output += "<li>" + data.lectureList[i].contentList[j].guestion;
+	}
+	output += "</ul>";
 }
-document.getElementById("demo").innerHTML = x;
 
-const btn = document.getElementById('btn')
-
-btn.addEventListener('click', () => {
-	myObj.cars[1] = "Mercedes";
-	
-})
+// Output the data to the "artistlist" element
+document.getElementById("artistlist").innerHTML = output;

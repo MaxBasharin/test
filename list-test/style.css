@@ -1,0 +1,222 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+:root {
+	--index: calc(1vw + 1vh);
+	--color-Silver-Chalice: rgba(0, 0, 0, 0.3)
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.page {
+	padding-top: 50px;
+	overflow: hidden;
+}
+
+
+
+.container {
+	width: 100%;
+	max-width: 1230px;
+	padding: 0;
+	margin: 0 auto;
+}
+
+
+.title {
+	line-height: 1;
+	font-size: calc(var(--index) * 2.5);
+	font-weight: bold;
+}
+
+.header__inner {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 30px;
+}
+
+.wrapper__inner {
+	display: flex;
+	justify-content: space-around;
+	
+}
+
+.block__content {
+	min-width: calc(var(--index) * 2.5);
+	padding: 5px 15px 20px;
+}
+
+.block__content + .block__content {
+	margin-left: 15px;
+	border-left: 1px solid var(--color-Silver-Chalice);
+	border-radius: 16px;
+}
+
+.category__list * {
+	transition: .4s linear;
+}
+
+.category__list {
+	list-style-type: circle;
+	list-style-position: inside;
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+.category__list li {
+	border-bottom: 1px solid #efefef;
+	padding: 10px 0;
+}
+
+.category__list input {
+	text-decoration: none;
+
+	font-size: calc(var(--index) * 1.3);
+	max-width: 100%;
+}
+
+ */
+
+
+/* reset */
+html,
+body,
+h1,
+div,
+button,
+canvas,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style-type: none;
+}
+
+body {
+	font: 400 15px/20px Roboto, sans-serif;
+	color: #333;
+	background-color: #fff;
+}
+
+h1 {
+	font-weight: 500;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+/* grid */
+html,
+body,
+.wrap {
+	height: 100%;
+}
+
+.wrap {
+	
+	margin: 0 auto 20px;
+	padding: 50px 10px;
+}
+
+.wrap>div {
+	margin-bottom: 30px;
+}
+
+.wrap>div .container+.container {
+	margin-left: 20px;
+}
+
+.flex {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: space-around;
+}
+
+:root {
+	--index: calc(1vw + 1vh);
+	--color-Silver-Chalice: rgba(0, 0, 0, 0.3)
+}
+
+/* content */
+.container {
+	width: 160px;
+	min-width: calc(var(--index) * 2.5);
+	height: 420px;
+	position: relative;
+	border: solid 1px #dedede;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+	background: #fff;
+}
+
+.viewport {
+	overflow: hidden;
+	position: absolute;
+	left: 0px;
+	right: 9px;
+	top: 7px;
+	bottom: 7px;
+}
+
+.content-box {
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: -17px;
+	overflow-y: scroll;
+}
+
+.content-list {
+	padding: 0 20px 0 5px;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.content-list li+li {
+	margin-top: 10px;
+}
+
+/* scroll bar */
+.scrollbar,
+.scroller {
+	width: 4px;
+	position: absolute;
+	top: 0;
+}
+
+.scrollbar {
+	right: 0;
+	bottom: 0;
+}
+
+.scroller {
+	left: 0;
+	border-radius: 2px;
+	background: #ccc;
+	cursor: pointer;
+}
+
+/* Hacks */
+_:-ms-input-placeholder,
+:root .content-list {
+	padding-left: 20px;
+}
